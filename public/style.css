@@ -19,30 +19,6 @@
     padding: 0;
 }
 
-.bottom-navbar {
-    background-color: #2780E3;
-    position: fixed;
-    padding: 5px 0px 5px 0px;
-    bottom: 0;
-    padding-bottom: calc(constant(safe-area-inset-bottom)*(-1));
-    padding-bottom: calc(env(safe-area-inset-bottom)*(-1));
-}
-
-.nav-tabs .nav-link {
-    font-size: 1rem;
-    color: #aaa;
-}
-
-.bottom-link {
-    font-size: 1rem;
-    color: #919191;
-    opacity: 1;
-}
-
-.navbar-icon {
-    width: 1.5rem!important;
-}
-
 .recomendation {
     margin: 10px;
 }
