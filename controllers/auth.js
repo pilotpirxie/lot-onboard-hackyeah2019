@@ -202,7 +202,16 @@ module.exports = {
   changeData: (req, res, next) => {
     try {
       const updatedUser = Users.update({
-        nickname: req.body['nickname']
+        nickname: req.body['nickname'],
+        fullname: req.body['fullname'],
+        address: req.body['address'],
+        postal_code: req.body['postal_code'],
+        city: req.body['city'],
+        country: req.body['country'],
+        phone_number: req.body['phone_number'],
+        document_type: req.body['document_type'],
+        document_number: req.body['document_number'],
+        document_country: req.body['document_country']
       }, {
         where: {
           id: req.session.userData.userId,

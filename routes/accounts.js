@@ -66,6 +66,15 @@ router.post('/password', [csrfProtection, authorisationMiddleware, validation({
 router.post('/data', [csrfProtection, authorisationMiddleware, validation({
   body: {
     nickname: Joi.string().required(),
+    fullname: Joi.string().required(),
+    address: Joi.string().required(),
+    postal_code: Joi.string().required(),
+    city: Joi.string().required(),
+    country: Joi.string().required(),
+    phone_number: Joi.string().required(),
+    document_type: Joi.string().required(),
+    document_number: Joi.string().required(),
+    document_country: Joi.string().required(),
     _csrf: Joi.string().required(),
   }
 })], auth.changeData);
