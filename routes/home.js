@@ -12,6 +12,10 @@ router.get('/recommendation/:id', (req, res) => {
     res.render('recommendation-details');
 });
 
+router.get('/purchase-complete', (req, res) => {
+    res.render('purchase-complete');
+});
+
 router.post('/user-flights', [validation({
     body: {
         user_id: Joi.any().required(),
