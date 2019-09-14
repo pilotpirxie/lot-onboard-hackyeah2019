@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('user_flights', {
+    return sequelize.define('flights', {
         id: {
             type: DataTypes.INTEGER(11),
             allowNull: false,
@@ -29,6 +29,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     }, {
-        tableName: 'user_flights'
+        tableName: 'flights'
     });
 };
