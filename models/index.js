@@ -7,6 +7,7 @@ const Flights = require('../models/flights')(sql.connection, sql.dataTypes);
 const UserFlights = require('../models/user_flights')(sql.connection, sql.dataTypes);
 const Achievements = require('../models/achievements')(sql.connection, sql.dataTypes);
 const UserAchievements = require('../models/user_achievements')(sql.connection, sql.dataTypes);
+const Recommendations = require('../models/recommendations')(sql.connection, sql.dataTypes);
 
 module.exports = {
     Users,
@@ -15,6 +16,7 @@ module.exports = {
     UserGroups,
     Flights,
     UserFlights,
+    Recommendations,
     Achievements,
     UserAchievements
 };
