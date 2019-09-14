@@ -5,6 +5,7 @@ const Groups = require('../models/groups')(sql.connection, sql.dataTypes);
 const UserGroups = require('../models/user_groups')(sql.connection, sql.dataTypes);
 const Flights = require('../models/flights')(sql.connection, sql.dataTypes);
 const UserFlights = require('../models/user_flights')(sql.connection, sql.dataTypes);
+const Recommendations = require('../models/recommendations')(sql.connection, sql.dataTypes);
 
 module.exports = {
     Users,
@@ -12,5 +13,6 @@ module.exports = {
     Groups,
     UserGroups,
     Flights,
-    UserFlights
+    UserFlights,
+    Recommendations
 };

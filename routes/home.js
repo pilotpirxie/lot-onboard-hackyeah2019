@@ -1,11 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const { addUserFlight } = require('../controllers/userFlightController');
+const { getAllRecommendations } = require('../controllers/recommendationsController');
+
 const validation = require('../util/validation');
 const Joi = require('joi');
 
-router.get('/', (req, res) => {
-    res.render('index');
+router.get('/', async (req, res, next) => {
+    try {
+        let recommendations = await getAllRecommendations();
+        res.render('index', {recommendations: recommendations});
+    } catch (e) {
+        next(e);
+    }
 });
 
 router.get('/recommendation/:id', (req, res) => {
