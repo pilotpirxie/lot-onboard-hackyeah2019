@@ -1,0 +1,56 @@
+{{> header}}
+<div class="mt-0" id="account-data">
+                <div class="card">
+                    <div class="card-header" >
+                        <h4>Online check-in</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/accounts/data">
+                            <div class="form-group">
+                                <label>Full name</label>
+                                <input type="text" class="form-control" value="{{user.fullname}}" name="fullname" placeholder="Full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" value="{{user.address}}" name="address" placeholder="Address">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Postal code</label>
+                                <input type="text" class="form-control" value="{{user.postal_code}}" name="postal_code" placeholder="Postal code e.g. 12-345">
+                            </div>
+
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" value="{{user.city}}" name="city" placeholder="City">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone number</label>
+                                <input type="text" class="form-control" value="{{user.phone_number}}" name="phone_number" placeholder="Phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Document type</label>
+                                <select id="document_type" name="document_type" class="form-control">
+                                    <option value="0">ID Card</option>
+                                    <option value="1">Passport</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Document number</label>
+                                <input type="text" class="form-control" value="{{user.document_number}}" name="document_number" placeholder="Document number">
+                            </div>
+
+                            <input type="hidden" name="_csrf" value="{{csrf}}" hidden/>
+                            <button type="submit" class="btn btn-primary col-12 mt-2">Check-in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+{{> footer}}
