@@ -1,4 +1,5 @@
 const express = require('express');
+const {Users} = require('../models/index');
 const router = express.Router();
 const config = require('../config/config');
 const csrf = require('csurf');
@@ -18,8 +19,13 @@ const upload = multer({
   }
 });
 
-router.get('/', [csrfProtection, authorisationMiddleware], (req, res) => {
-  res.render('accounts/index', {metadata: config.METADATA, currentYear: (new Date).getFullYear(), csrf: req.csrfToken()});
+router.get('/', [csrfProtection, authorisationMiddleware], async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      id: req.session.userData.userId
+    }
+  });
+  res.render('accounts/index', {user, metadata: config.METADATA, currentYear: (new Date).getFullYear(), csrf: req.csrfToken()});
 });
 
 router.get('/login', [csrfProtection, reverseAuthorisationMiddleware], (req, res) => {
