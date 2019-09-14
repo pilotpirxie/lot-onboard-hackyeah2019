@@ -23,6 +23,10 @@ router.get('/purchase-complete', (req, res) => {
     res.render('purchase-complete');
 });
 
+router.get('/check-in', (req, res) => {
+    res.render('check-in');
+});
+
 router.post('/user-flights', [validation({
     body: {
         user_id: Joi.any().required(),
