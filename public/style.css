@@ -67,3 +67,8 @@ body {
 .header-flight-text {
     color: #FFF;
 }
+
+.text-colored {
+    color: #2780E3;
+    padding-top: 10px;
+}
