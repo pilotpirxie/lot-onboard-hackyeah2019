@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(256),
             allowNull: false
         },
+        checklist: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
         date_start: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -23,10 +27,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        checklist: {
-            type: DataTypes.TEXT,
-            allowNull: false
         }
     }, {
         tableName: 'user_flights'
