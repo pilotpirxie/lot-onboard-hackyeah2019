@@ -12,19 +12,21 @@
         </div>
     </div>
 
-    <div class="row mt-2 recommended-text">
+    <div class="row mt-4 recommended-text">
         <h5 class="font-weight-bold">Recommended flights</h5>
     </div>
 
     <div class="row mt-2">
  {{#each recommendations}}
 
-        <div class="col-6 recommended">
+        <div class="col-12 recommended">
             <div class="card mb-12">
                 <img style="width: 100%; display: block;"
                     src={{this.image_url}}
                     alt="Card image">
                 <div class="recomendation">
+                    <h6 class="font-weight-bold">Warsaw → Cracow</h6>
+                    <p>Prices from 768 PLN</p>
                     <h6 class="font-weight-bold">{{this.from}} - {{this.to}}</h6>
                     <p>Ceny od {{this.price}}  PLN</p>
                 </div>

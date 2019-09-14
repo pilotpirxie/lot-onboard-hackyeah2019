@@ -126,7 +126,7 @@ module.exports = {
           email: req.body.email,
           password: encodePassword(req.body.password, salt),
           auth_type: 0,
-          avatar_url: '',
+          avatar_url: '/img/avatar.png',
           salt,
           activation_key: verificationCode,
           verified: config.INITIALLY_VERIFIED ? 1 : 0,
@@ -134,6 +134,15 @@ module.exports = {
           newsletter: req.body.newsletter ? 1 : 0,
           marketing: req.body.marketing ? 1 : 0,
           ip_address: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+          fullname: '',
+          address: '',
+          postal_code: '',
+          city: '',
+          country: '',
+          phone_number: '',
+          document_type: '',
+          document_number: '',
+          document_country: ''
         });
 
         if (!user) {
