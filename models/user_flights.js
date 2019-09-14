@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes) {
         },
         flight_id: {
             type: DataTypes.INTEGER(11),
-            allowNull: false
+            allowNull: true
         },
         flight_status: {
             type: DataTypes.STRING(256),
-            allowNull: false
+            allowNull: true
         },
         pnr: {
             type: DataTypes.STRING(256),
