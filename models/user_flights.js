@@ -18,6 +18,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(256),
             allowNull: false
         },
+        pnr: {
+            type: DataTypes.STRING(256),
+            allowNull: true,
+            defaultValue: null
+        },
         created_at: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -27,11 +32,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        pnr: {
-            type: DataTypes.STRING(256),
-            allowNull: true,
-            defaultValue: null
         }
     }, {
         tableName: 'users_flights'
