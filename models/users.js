@@ -20,6 +20,42 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(256),
       allowNull: false
     },
+    fullname: {
+      type: DataTypes.STRING(64),
+      allowNull: false
+    },
+    address: {
+      type: DataTypes.STRING(64),
+      allowNull: false
+    },
+    postal_code: {
+      type: DataTypes.STRING(32),
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING(32),
+      allowNull: false
+    },
+    country: {
+      type: DataTypes.STRING(32),
+      allowNull: false
+    },
+    phone_number: {
+      type: DataTypes.STRING(32),
+      allowNull: false
+    },
+    document_type: {
+      type: DataTypes.INTEGER(4),
+      allowNull: false
+    },
+    document_number: {
+      type: DataTypes.STRING(64),
+      allowNull: false
+    },
+    document_country: {
+      type: DataTypes.STRING(32),
+      allowNull: false
+    },
     nickname: {
       type: DataTypes.STRING(256),
       allowNull: false
