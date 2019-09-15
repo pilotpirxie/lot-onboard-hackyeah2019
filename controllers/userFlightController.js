@@ -1,4 +1,4 @@
-const {UserFlights, Recommendations} = require('../models/index');
+const {UserFlights, Recommendations, UserAchievements, Achievements} = require('../models/index');
 
 module.exports = {
 
@@ -26,5 +26,26 @@ module.exports = {
                 id: flight_id
             }
         });
+    },
+    getUserAchievements: async (user_id) => {
+        let achievements = [];
+
+        let user_achievements = await UserAchievements.findAll({
+            where: {
+                user_id: user_id
+            }
+        });
+
+        for (i = 0; i < user_achievements.length; i++) {
+            let achievement = await Achievements.findOne({
+                where: {
+                    id: user_achievements[i].achievement_id
+                }
+            });
+
+            achievements.push(achievement)
+
+        }
+        return achievements;
     }
 };
