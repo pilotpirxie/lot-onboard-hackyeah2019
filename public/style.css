@@ -48,3 +48,10 @@ body {
     color: #2780E3;
     padding-top: 10px;
 }
+
+.custom-control-label::before,
+.custom-control-label::after {
+    top: .8rem;
+    width: 2rem;
+    height: 2rem;
+}

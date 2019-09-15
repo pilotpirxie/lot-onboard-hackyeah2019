@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { addUserFlight, getAllTickets } = require('../controllers/userFlightController');
+const { addUserFlight } = require('../controllers/userFlightController');
 const { getAllRecommendations } = require('../controllers/recommendationsController');
 
 const validation = require('../util/validation');
 const Joi = require('joi');
 
-router.get('/', async (req, res, next) => {
+router.get('/', async(req, res, next) => {
     try {
         let recommendations = await getAllRecommendations();
-        res.render('index', {recommendations: recommendations});
+        res.render('index', { recommendations: recommendations });
     } catch (e) {
         next(e);
     }
@@ -23,8 +23,20 @@ router.get('/purchase-complete', (req, res) => {
     res.render('purchase-complete');
 });
 
-router.get('/check-in', (req, res) => {
+router.get('/check-in/:id', (req, res) => {
     res.render('check-in');
+});
+
+router.get('/check-list/:id', (req, res) => {
+    res.render('check-list');
+});
+
+router.get('/tickets', (req, res) => {
+    res.render('tickets');
+});
+
+router.get('/boarding-pass/:id', (req, res) => {
+    res.render('boarding-pass');
 });
 
 router.post('/user-flights', [validation({
@@ -35,15 +47,5 @@ router.post('/user-flights', [validation({
         flight_status: Joi.string().optional()
     }
 })], addUserFlight);
-
-
-router.get('/tickets', async (req, res, next) => {
-    try {
-        let tickets = await getAllTickets();
-        res.render('tickets', {tickets: tickets});
-    } catch (e) {
-        next(e);
-    }
-});
 
 module.exports = router;
