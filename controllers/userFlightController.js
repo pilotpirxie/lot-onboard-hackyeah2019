@@ -13,7 +13,11 @@ module.exports = {
             throw new Error('Problem with saving.')
         }
     },
-    getAllTickets: async (req, res, next) => {
-        return UserFlights.findAll();
+    getAllTickets: async (user_id) => {
+        return UserFlights.findAll({
+            where: {
+                user_id: user_id
+            }
+        });
     }
 };
