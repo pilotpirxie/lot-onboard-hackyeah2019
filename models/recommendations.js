@@ -25,6 +25,14 @@ module.exports = function(sequelize, DataTypes) {
         price: {
             type: DataTypes.STRING(256),
             allowNull: true
+        },
+        start: {
+            type: DataTypes.STRING(256),
+            allowNull: true
+        },
+        end: {
+            type: DataTypes.STRING(256),
+            allowNull: true
         }
     }, {
         tableName: 'recommendations'

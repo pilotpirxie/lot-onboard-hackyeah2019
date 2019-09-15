@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { addUserFlight } = require('../controllers/userFlightController');
-const { getAllRecommendations } = require('../controllers/recommendationsController');
+const { getAllRecommendations, getRecommendationDetails } = require('../controllers/recommendationsController');
 const checkIn = require('../controllers/checkInController');
 const validation = require('../util/validation');
 const Joi = require('joi');
@@ -18,8 +18,9 @@ router.get('/', [csrfProtection, authorisationMiddleware], async(req, res, next)
     }
 });
 
-router.get('/recommendation/:id', [csrfProtection, authorisationMiddleware], (req, res) => {
-    res.render('recommendation-details');
+router.get('/recommendation/:id', [csrfProtection, authorisationMiddleware], async(req, res) => {
+    let recommendation = await getRecommendationDetails(req.params.id);
+    res.render('recommendation-details', { recommendation: recommendation });
 });
 
 router.get('/purchase-complete', [csrfProtection, authorisationMiddleware], (req, res) => {
