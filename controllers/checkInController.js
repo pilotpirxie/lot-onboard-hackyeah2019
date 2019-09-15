@@ -14,7 +14,8 @@ module.exports = {
           user,
           metadata: config.METADATA,
           currentYear: (new Date).getFullYear(),
-          csrf: req.csrfToken()
+          csrf: req.csrfToken(),
+          check_id: req.params.id
         });
       } catch (err) {
         next(err);

@@ -5,7 +5,8 @@
             <h2>➡️ Online Check-In</h2>
         </div>
     <div class="card-body">
-        <form method="post" action="/accounts/data">
+        <form method="post" action="/check-in">
+            <input type="hidden" hidden name="id" value="{{check_id}}"/>
             <div class="form-group">
                 <label>Full name</label>
                 <input type="text" class="form-control" value="{{user.fullname}}" name="fullname"

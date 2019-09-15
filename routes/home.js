@@ -9,7 +9,7 @@ const authorisationMiddleware = require('../util/authorisationMiddleware');
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
 
-router.get('/', [csrfProtection, authorisationMiddleware], async(req, res, next) => {
+router.get('/', async(req, res, next) => {
     try {
         let recommendations = await getAllRecommendations();
         res.render('index', { recommendations: recommendations });
@@ -18,7 +18,7 @@ router.get('/', [csrfProtection, authorisationMiddleware], async(req, res, next)
     }
 });
 
-router.get('/recommendation/:id', [csrfProtection, authorisationMiddleware], (req, res) => {
+router.get('/recommendation/:id', (req, res) => {
     res.render('recommendation-details');
 });
 
@@ -27,6 +27,12 @@ router.get('/purchase-complete', [csrfProtection, authorisationMiddleware], (req
 });
 
 router.get('/check-in/:id', [csrfProtection, authorisationMiddleware], checkIn.getData);
+
+router.post('/check-in', [validation({
+    body: {
+        
+    }
+})], addUserFlight);
 
 router.get('/check-list/:id', [csrfProtection, authorisationMiddleware], (req, res) => {
     res.render('check-list');
