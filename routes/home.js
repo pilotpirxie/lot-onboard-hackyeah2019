@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { addUserFlight } = require('../controllers/userFlightController');
-const { getAllRecommendations } = require('../controllers/recommendationsController');
+const { addUserFlight, getAllTickets } = require('../controllers/userFlightController');
+const { getAllRecommendations, getRecommendationDetails } = require('../controllers/recommendationsController');
 const checkIn = require('../controllers/checkInController');
 const validation = require('../util/validation');
 const Joi = require('joi');
@@ -18,8 +18,9 @@ router.get('/', async(req, res, next) => {
     }
 });
 
-router.get('/recommendation/:id', (req, res) => {
-    res.render('recommendation-details');
+router.get('/recommendation/:id', async(req, res) => {
+    let recommendation = await getRecommendationDetails(req.params.id);
+    res.render('recommendation-details', { recommendation: recommendation });
 });
 
 router.get('/purchase-complete', [csrfProtection, authorisationMiddleware], (req, res) => {
@@ -30,7 +31,7 @@ router.get('/check-in/:id', [csrfProtection, authorisationMiddleware], checkIn.g
 
 router.post('/check-in', [validation({
     body: {
-        
+
     }
 })], addUserFlight);
 
@@ -38,8 +39,9 @@ router.get('/check-list/:id', [csrfProtection, authorisationMiddleware], (req, r
     res.render('check-list');
 });
 
-router.get('/tickets', [csrfProtection, authorisationMiddleware], (req, res) => {
-    res.render('tickets');
+router.get('/tickets', [csrfProtection, authorisationMiddleware], async(req, res) => {
+    let tickets = await getAllTickets(req.session.userData.userId);
+    res.render('tickets', {tickets:tickets});
 });
 
 router.get('/boarding-pass/:id', [csrfProtection, authorisationMiddleware], (req, res) => {

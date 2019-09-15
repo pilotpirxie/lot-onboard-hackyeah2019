@@ -4,10 +4,10 @@
     <div class="row d-flex justify-content-around hero-container">
         <div class="hero-content align-self-center">
                 <div class="d-flex justify-content-around mt-2">
-                    <h4 class="header-flight-text font-weight-bold">Warsaw → Cracow</h4>
+                    <h4 class="header-flight-text font-weight-bold">{{recommendation.from}} → {{recommendation.to}}</h4>
                 </div>
                 <div class="d-flex justify-content-around m-2">
-                    <h6 class="header-flight-text">18.09.2019 10:35 → 11:45</h6>
+                    <h6 class="header-flight-text">{{recommendation.start}} → {{recommendation.end}} </h6>
                 </div>
 
         </div>
@@ -22,10 +22,10 @@
                     <button type="button" class="btn btn-primary form-control">🔎 Find cheap flights</button>
                 </div>
                 <div class="d-flex justify-content-around mt-2">
-                    <h4 class="header-flight-text text-colored font-weight-bold">Prices from 768 PLN</h4>
+                    <h4 class="header-flight-text text-colored font-weight-bold">Prices from {{recommendation.price}} PLN</h4>
                 </div>
                 <div class="d-flex justify-content-around m-4">
-                    <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper facilisis sodales. Ut justo neque, finibus at dolor in, venenatis maximus tellus. Aliquam erat volutpat. Etiam faucibus felis in condimentum scelerisque. Proin blandit leo laoreet ipsum laoreet porta. Curabitur suscipit quam in ante porta, at malesuada odio varius. Maecenas volutpat consequat dui non suscipit.</p>
+                    <p class=""> {{recommendation.description}}</p>
                 </div>
         </div>
     </div>

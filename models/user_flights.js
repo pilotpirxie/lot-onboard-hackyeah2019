@@ -34,14 +34,12 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: null
         },
         departure_time: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            type: DataTypes.STRING(256),
+            allowNull: true,
         },
         arrival_time: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            type: DataTypes.STRING(256),
+            allowNull: true,
         },
         created_at: {
             type: DataTypes.DATE,

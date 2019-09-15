@@ -8,30 +8,22 @@
     <div class="row mt-3">
         <div class="col-12">
             <ul class="list-group">
-                <li class="list-group-item">
-                    <h5>🛫 Warsaw → Cracow</h5>
-                    <p>18.09.2019 10:35 → 11:45</p>
-                    <a href="/check-in/1">
-                        <button type="button" class="form-control mt-2 btn btn-primary ">Check-in</button>
-                    </a>
-                    <a href="/check-list/1">
-                        <button type="button" class="form-control mt-2 btn btn-outline-primary ">Guide & Check-list</button>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <h5>🛫 Warsaw → Budapest</h5>
-                    <p>21.09.2019 17:20 → 19:05</p>
-                    <a href="/boarding-pass/1">
-                        <button type="button" class="form-control mt-2 btn btn-success ">Boarding pass</button>
-                    </a>
-                    <button type="button" class="form-control mt-2 btn btn-outline-primary ">Guide & Check-list</button>
-                </li>
-                <li class="list-group-item">
-                    <h5>🛫 Rzeszow → New York</h5>
-                    <p>09.10.2019 14:40 → 18:40</p>
-                    <button type="button" class="form-control mt-2 btn btn-success ">Boarding pass</button>
-                    <button type="button" class="form-control mt-2 btn btn-outline-primary ">Guide & Check-list</button>
-                </li>
+                {{#each tickets}}
+                    <li class="list-group-item">
+                        <h5>🛫 {{this.from}} → {{this.to}}</h5>
+                        <p>{{this.departure_time}} → {{this.arrival_time}}</p>
+                        <a href="/check-in/1">
+                            {{#if this.flight_status}}
+                              <button type="button" class="form-control mt-2 btn btn-success ">Boarding pass</button>
+                            {{else}}
+                              <button type="button" class="form-control mt-2 btn btn-primary ">Check-in</button>
+                            {{/if}}
+                        </a>
+                        <a href="/check-list/1">
+                            <button type="button" class="form-control mt-2 btn btn-outline-primary ">Guide & Check-list</button>
+                        </a>
+                    </li>
+                {{/each}}
             </ul>
         </div>
     </div>
