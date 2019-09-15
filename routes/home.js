@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { addUserFlight } = require('../controllers/userFlightController');
+const { addUserFlight, getAllTickets } = require('../controllers/userFlightController');
 const { getAllRecommendations, getRecommendationDetails } = require('../controllers/recommendationsController');
 const checkIn = require('../controllers/checkInController');
 const validation = require('../util/validation');
@@ -33,8 +33,9 @@ router.get('/check-list/:id', [csrfProtection, authorisationMiddleware], (req, r
     res.render('check-list');
 });
 
-router.get('/tickets', [csrfProtection, authorisationMiddleware], (req, res) => {
-    res.render('tickets');
+router.get('/tickets', [csrfProtection, authorisationMiddleware], async(req, res) => {
+    let tickets = await getAllTickets(req.session.userData.userId);
+    res.render('tickets', {tickets:tickets});
 });
 
 router.get('/boarding-pass/:id', [csrfProtection, authorisationMiddleware], (req, res) => {
