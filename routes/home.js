@@ -1,6 +1,7 @@
 const express = require('express');
+const auth = require('../controllers/auth');
 const router = express.Router();
-const { addUserFlight, getAllTickets } = require('../controllers/userFlightController');
+const { addUserFlight, getAllTickets, getFlight } = require('../controllers/userFlightController');
 const { getAllRecommendations, getRecommendationDetails } = require('../controllers/recommendationsController');
 const checkIn = require('../controllers/checkInController');
 const validation = require('../util/validation');
@@ -44,8 +45,11 @@ router.get('/tickets', [csrfProtection, authorisationMiddleware], async(req, res
     res.render('tickets', {tickets:tickets});
 });
 
-router.get('/boarding-pass/:id', [csrfProtection, authorisationMiddleware], (req, res) => {
-    res.render('boarding-pass');
+router.get('/boarding-pass/:user_id/:flight_id', [csrfProtection, authorisationMiddleware], async(req, res) => {
+    let flightData = await getFlight(req.params.flight_id);
+    let userData = await auth.getUserData(req.params.user_id);
+    console.log('flight_data', userData)
+    res.render('boarding-pass',  {flightData:flightData, userData:userData});
 });
 
 router.get('/achievements', [csrfProtection, authorisationMiddleware], (req, res) => {

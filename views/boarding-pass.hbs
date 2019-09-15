@@ -2,15 +2,15 @@
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-12 text-center">
-            <h2>WAW → BUD</h2>
+            <h2>{{flightData.from}} → {{flightData.to}}</h2>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-12 pb-4">
             <ul class="list-group">
-                <li class="list-group-item font-weight-bold">Warsaw → Budapest</li>
-                <li class="list-group-item">🙋‍♂️ Passenger: Adam Kowalski</li>
-                <li class="list-group-item">🕓 21.09.2019 17:20 → 19:05</li>
+                <li class="list-group-item font-weight-bold">{{flightData.from}} → {{flightData.to}}</li>
+                <li class="list-group-item">🙋‍♂️ Passenger: {{userData.fullname}}</li>
+                <li class="list-group-item">🕓 {{flightData.departure_time}} → {{flightData.arrival_time}}</li>
                 <li class="list-group-item">✈️ Fly #: LO1234</li>
                 <li class="list-group-item">💺 Seat: 20F</li>
                 <li class="list-group-item">🔢 Reference number: ZXCVBN</li>
