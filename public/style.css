@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+.remove-margin {
+    margin: 0;
+}
+
 .hero-container {
     height: 60vh;
     background-image: url("/img/background_plane.jpg");
@@ -25,10 +29,6 @@
 
 .logo-lot {
     width: 60vw;
-}
-
-.card {
-    border: 0;
 }
 
 body {

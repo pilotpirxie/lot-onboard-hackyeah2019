@@ -2,36 +2,11 @@
 <div class="container container-fade mt-5">
     <div class="row">
         <div class="col-12 text-center">
-            <h2>Account Settings</h2>
+            <h2>🔒 Account Settings</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9">
-            <div class="mt-4" id="change-password">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="float-left">Change password</h4>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" action="/accounts/password">
-                            <div class="form-group">
-                                <label>Current password</label>
-                                <input type="password" class="form-control" name="current-password" placeholder="Current password">
-                            </div>
-                            <div class="form-group">
-                                <label>New password (must be at least 8 characters)</label>
-                                <input type="password" class="form-control" name="new-password" placeholder="New password" pattern=".{8,}" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Repeat new password</label>
-                                <input type="password" class="form-control" name="repeat-new-password" placeholder="Repeat new password" pattern=".{8,}" required>
-                            </div>
-                            <input type="hidden" name="_csrf" value="{{csrf}}" hidden/>
-                            <button type="submit" class="btn btn-primary">Change</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <div class="mt-4" id="account-data">
                 <div class="card">
                     <div class="card-header" >
@@ -89,6 +64,31 @@
                                 <input type="hidden" hidden class="form-control" value="NA" name="document_country" placeholder="Document country">
                             </div>
 
+                            <input type="hidden" name="_csrf" value="{{csrf}}" hidden/>
+                            <button type="submit" class="btn btn-primary">Change</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4" id="change-password">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="float-left">Change password</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/accounts/password">
+                            <div class="form-group">
+                                <label>Current password</label>
+                                <input type="password" class="form-control" name="current-password" placeholder="Current password">
+                            </div>
+                            <div class="form-group">
+                                <label>New password (must be at least 8 characters)</label>
+                                <input type="password" class="form-control" name="new-password" placeholder="New password" pattern=".{8,}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Repeat new password</label>
+                                <input type="password" class="form-control" name="repeat-new-password" placeholder="Repeat new password" pattern=".{8,}" required>
+                            </div>
                             <input type="hidden" name="_csrf" value="{{csrf}}" hidden/>
                             <button type="submit" class="btn btn-primary">Change</button>
                         </form>
