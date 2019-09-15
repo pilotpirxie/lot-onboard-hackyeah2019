@@ -1,4 +1,4 @@
-const {UserFlights} = require('../models/index');
+const {UserFlights, Recommendations} = require('../models/index');
 
 module.exports = {
 
@@ -13,15 +13,7 @@ module.exports = {
             throw new Error('Problem with saving.')
         }
     },
-    getUserFlights: async (req, res, next) => {
-        try {
-            await UserFlights.create({
-                user_id: req.body.user_id,
-                pnr: req.body.pnr
-            });
-        } catch (e) {
-            res.send
-
-        }
-    },
+    getAllTickets: async (req, res, next) => {
+        return UserFlights.findAll();
+    }
 };

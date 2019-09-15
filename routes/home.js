@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { addUserFlight } = require('../controllers/userFlightController');
+const { addUserFlight, getAllTickets } = require('../controllers/userFlightController');
 const { getAllRecommendations } = require('../controllers/recommendationsController');
 
 const validation = require('../util/validation');
@@ -35,5 +35,15 @@ router.post('/user-flights', [validation({
         flight_status: Joi.string().optional()
     }
 })], addUserFlight);
+
+
+router.get('/tickets', async (req, res, next) => {
+    try {
+        let tickets = await getAllTickets();
+        res.render('tickets', {tickets: tickets});
+    } catch (e) {
+        next(e);
+    }
+});
 
 module.exports = router;
