@@ -20,6 +20,13 @@ module.exports = {
             }
         });
     },
+    getFlight: async (flight_id) => {
+        return UserFlights.findOne({
+            where: {
+                id: flight_id
+            }
+        });
+    },
     getUserAchievements: async (user_id) => {
         let achievements = [];
 

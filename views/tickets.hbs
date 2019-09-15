@@ -12,13 +12,16 @@
                     <li class="list-group-item">
                         <h5>🛫 {{this.from}} → {{this.to}}</h5>
                         <p>{{this.departure_time}} → {{this.arrival_time}}</p>
-                        <a href="/check-in/1">
+
                             {{#if this.flight_status}}
+                            <a href="/boarding-pass/{{this.user_id}}/{{this.flight_id}}">
                               <button type="button" class="form-control mt-2 btn btn-success ">Boarding pass</button>
                             {{else}}
+                            <a href="/check-in">
                               <button type="button" class="form-control mt-2 btn btn-primary ">Check-in</button>
+                             </a>
                             {{/if}}
-                        </a>
+
                         <a href="/check-list/1">
                             <button type="button" class="form-control mt-2 btn btn-outline-primary ">Guide & Check-list</button>
                         </a>

@@ -140,7 +140,7 @@ module.exports = {
           city: '',
           country: '',
           phone_number: '',
-          document_type: '',
+          document_type: 0,
           document_number: '',
           document_country: ''
         });
@@ -345,6 +345,17 @@ module.exports = {
     } catch (err) {
       next(err);
     }
+  },
+
+
+  getUserData: async (user_id) => {
+    const userSearch = await Users.findOne({
+      where: {
+        id: user_id
+      }
+    });
+    return userSearch;
+
   },
 
   changeAvatar: async (req, res, next) => {
