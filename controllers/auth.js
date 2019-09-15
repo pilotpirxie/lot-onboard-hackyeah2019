@@ -140,7 +140,7 @@ module.exports = {
           city: '',
           country: '',
           phone_number: '',
-          document_type: '',
+          document_type: 0,
           document_number: '',
           document_country: ''
         });
