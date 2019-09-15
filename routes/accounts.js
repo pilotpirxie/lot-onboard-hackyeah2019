@@ -20,12 +20,21 @@ const upload = multer({
 });
 
 router.get('/', [csrfProtection, authorisationMiddleware], async (req, res) => {
-  const user = await Users.findOne({
-    where: {
-      id: req.session.userData.userId
-    }
-  });
-  res.render('accounts/index', {user, metadata: config.METADATA, currentYear: (new Date).getFullYear(), csrf: req.csrfToken()});
+  try {
+    const user = await Users.findOne({
+      where: {
+        id: req.session.userData.userId
+      }
+    });
+    res.render('accounts/index', {
+      user,
+      metadata: config.METADATA,
+      currentYear: (new Date).getFullYear(),
+      csrf: req.csrfToken()
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get('/login', [csrfProtection, reverseAuthorisationMiddleware], (req, res) => {
