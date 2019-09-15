@@ -19,5 +19,12 @@ module.exports = {
                 user_id: user_id
             }
         });
+    },
+    getFlight: async (flight_id) => {
+        return UserFlights.findOne({
+            where: {
+                id: flight_id
+            }
+        });
     }
 };
