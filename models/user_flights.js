@@ -23,6 +23,26 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
             defaultValue: null
         },
+        from: {
+            type: DataTypes.STRING(256),
+            allowNull: true,
+            defaultValue: null
+        },
+        to: {
+            type: DataTypes.STRING(256),
+            allowNull: true,
+            defaultValue: null
+        },
+        departure_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+        },
+        arrival_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+        },
         created_at: {
             type: DataTypes.DATE,
             allowNull: false,
