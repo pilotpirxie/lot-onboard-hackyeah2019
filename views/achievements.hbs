@@ -11,18 +11,15 @@
                 <li class="list-group-item font-weight-bold">Travel around the world and collect achievements</li>
             </ul>
             <div class="mt-2 mb-5">
+
+              {{#each achievments}}
                 <div class="card">
                     <div class="card-body">
-                        <h5>🗽 Visit New York</h5>
-                        <p>Symbol of freedom, prosperity and the capitalism.</p>
+                        <h5>{{this.name}}</h5>
+                        <p>{{this.description}}</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>🏰 Visit Czech Republic</h5>
-                        <p>Old castles, a lot of beer and beautiful landscapes.</p>
-                    </div>
-                </div>
+                 {{/each}}
             </div>
         </div>
     </div>
