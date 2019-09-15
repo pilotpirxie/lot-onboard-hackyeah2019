@@ -4,8 +4,6 @@
     position: fixed;
     padding: 5px 0px 5px 0px;
     bottom: 0;
-    padding-bottom: calc(constant(safe-area-inset-bottom)*(-1));
-    padding-bottom: calc(env(safe-area-inset-bottom)*(-1));
 }
 
 .nav-tabs .nav-link {
@@ -21,4 +19,23 @@
 
 .navbar-icon {
     width: 1.5rem!important;
+}
+
+@keyframes fadein{
+    from{
+        opacity:0;
+        transition:transform 0.5s ease-in 0s;
+    }
+    to{
+        opacity:1;
+    }
+}
+.container-fade {
+    animation: fadein 0.75s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
